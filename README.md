@@ -194,8 +194,8 @@ mumbai-house-price-app/
 
 ### 1. Clone
 ```bash
-git clone https://github.com/<imghimanshu>/mumbai-house-price-app.git
-cd mumbai-house-price-app
+git clone https://github.com/imghimanshu/Mumbai-House-Price-Prediction.git
+cd Mumbai-House-Price-Prediction
 ```
 
 ### 2. Environment
