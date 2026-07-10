@@ -7,12 +7,6 @@ An end-to-end machine learning project that predicts house prices in Mumbai. It 
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-orange)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-<img src="assets/app_screenshot.png" width="480"/>
-
-*(This is the final output — the live app. See below for the 3 intermediate outputs from the notebook that led here.)*
-
----
-
 ## 📌 Overview
 
 Real estate prices in Mumbai vary drastically by locality, property type, and size. This project builds a regression model on ~72,000 real listings and serves it through a lightweight web form:
@@ -50,13 +44,13 @@ Before modeling, the price distribution was visualized to understand its shape.
 
 **Output 1 — Raw price distribution**
 
-<img src="assets/price_distribution.png" width="480"/>
+<img width="701" height="490" alt="5d56d174-0193-486e-b572-81d6bd25ee9e" src="https://github.com/user-attachments/assets/2cd8cc99-2587-4eb4-92ef-c34d1ac62e70" />
 
 Raw `price` is heavily right-skewed — the vast majority of homes cluster under ₹5 crore, but a long tail of ultra-luxury properties stretches the x-axis out to over ₹80 crore. A handful of extreme values like this can quietly dominate a model's error metric and drag predictions for ordinary homes off-target, so this plot is what first flagged the need for a transform.
 
 **Output 2 — Log-transformed price distribution**
 
-<img src="assets/log_price_distribution.png" width="480"/>
+<img width="690" height="490" alt="c06943fa-b0ee-4b42-8851-8c5bbd2895a1" src="https://github.com/user-attachments/assets/083ad39b-0eb2-48c5-b72b-0efa3053c5f8" />
 
 Applying `log1p(price)` reshapes the same data into something close to a bell curve. This one chart drove the most important modeling decision in the whole project: **train the model on `log_price`, not raw price** (see step 4). A roughly normal, symmetric target is exactly what regression models are built to predict well.
 
@@ -93,7 +87,7 @@ Three regressors were trained on the same data and evaluated on the same untouch
 
 **Output 3 — Random Forest: predicted vs. actual price**
 
-<img src="assets/rf_predicted_vs_actual.png" width="480"/>
+<img width="694" height="706" alt="c812150c-548f-4e16-b4e3-c0b61ba80de2" src="https://github.com/user-attachments/assets/008b320d-fb14-4af7-9607-a2371745ff3e" />
 
 Each point is one test-set property; the x-axis is its real price, the y-axis is what the model predicted, both on a log scale, with the red dashed line marking a perfect prediction. The tight clustering along that diagonal — from under ₹10 lakh all the way past ₹30 crore — is the visual confirmation behind the 0.979 R² score: the model isn't just accurate on average, it stays accurate across the entire price range, from budget homes to ultra-luxury listings, with only a small scatter of outliers.
 
@@ -155,7 +149,7 @@ Then open `http://localhost:5000` — pick your dropdowns, type your numbers, an
 
 **Final Output — the live app**
 
-<img src="assets/app_screenshot.png" width="480"/>
+<img width="521" height="741" alt="Screenshot 2026-07-10 203249" src="https://github.com/user-attachments/assets/4c158ca6-0203-4bb3-a03e-f5534684e617" />
 
 This is the end result of everything above: a 1000 sqft, 3BHK, unfurnished Independent House in Borivali, 1 year old, 3 bathrooms, 3 balconies — submitted through the real form and estimated by the real trained model at **₹2,04,90,236**. Every number on this screen traces back through the pipeline: the dropdown options come straight from `model_columns.json`, the typed numbers pass through `validate_numeric_fields()`, and the price comes from `mumbai_house_price_model.pkl`'s prediction, un-logged back into rupees.
 
@@ -200,7 +194,7 @@ mumbai-house-price-app/
 
 ### 1. Clone
 ```bash
-git clone https://github.com/<your-username>/mumbai-house-price-app.git
+git clone https://github.com/<imghimanshu>/mumbai-house-price-app.git
 cd mumbai-house-price-app
 ```
 
