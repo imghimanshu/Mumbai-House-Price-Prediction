@@ -159,10 +159,10 @@ This is the end result of everything above: a 1000 sqft, 3BHK, unfurnished Indep
 
 | # | Output | What it shows |
 |---|---|---|
-| 1 | `assets/price_distribution.png` | Raw price is heavily skewed — motivates the log-transform |
-| 2 | `assets/log_price_distribution.png` | Log-transformed price — confirms the transform worked, used as the actual model target |
-| 3 | `assets/rf_predicted_vs_actual.png` | Random Forest's predictions vs. real prices on the test set — visual proof of the 0.979 R² |
-| **Final** | `assets/app_screenshot.png` | The deployed Flask app producing a real prediction end-to-end |
+| 1 | `png/price_distribution.png` | Raw price is heavily skewed — motivates the log-transform |
+| 2 | `png/log_price_distribution.png` | Log-transformed price — confirms the transform worked, used as the actual model target |
+| 3 | `png/rf_predicted_vs_actual.png` | Random Forest's predictions vs. real prices on the test set — visual proof of the 0.979 R² |
+| **Final** | `png/app_screenshot.png` | The deployed Flask app producing a real prediction end-to-end |
 
 ---
 
@@ -174,7 +174,7 @@ mumbai-house-price-app/
 ├── mumbai_house_price_prediction.ipynb # Full notebook: cleaning → EDA → modeling
 ├── model_columns.json                  # Ordered list of feature columns the model expects
 ├── requirements.txt                    # Python dependencies
-├── assets/
+├── png/
 │   ├── price_distribution.png          # Output 1 — raw price distribution
 │   ├── log_price_distribution.png      # Output 2 — log-transformed price distribution
 │   ├── rf_predicted_vs_actual.png      # Output 3 — Random Forest predicted vs actual
