@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# Env
+.venv/
+venv/
+env/
+
+# Raw/intermediate data (regenerate locally by running the notebook)
+mumbai-house-price-data.csv
+mumbai_house_data_cleaned.csv
+
+# NOTE: mumbai_house_price_model.pkl is intentionally NOT ignored.
+# It's tracked via Git LFS (see .gitattributes) so it can be committed
+# despite being 275MB. If you'd rather not ship the model file at all,
+# add it back here instead of using LFS.
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
