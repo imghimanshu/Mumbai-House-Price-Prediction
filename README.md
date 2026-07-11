@@ -6,6 +6,8 @@ An end-to-end machine learning project that predicts house prices in Mumbai. It 
 ![Flask](https://img.shields.io/badge/Flask-Web%20App-black)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-orange)
 
+---
+
 ## 📌 Overview
 
 Real estate prices in Mumbai vary drastically by locality, property type, and size. This project builds a regression model on ~72,000 real listings and serves it through a lightweight web form:
@@ -15,8 +17,35 @@ Real estate prices in Mumbai vary drastically by locality, property type, and si
 
 The example above shows a real run: a 1000 sqft, 3BHK, unfurnished Independent House in Borivali, 1 year old, estimated at **₹2,04,90,236**.
 
----
+## 📁 Project Structure
 
+```
+mumbai-house-price-app/
+├── app.py                              # Flask app — dropdowns + free numeric inputs
+├── mumbai_house_price_prediction.ipynb # Full notebook: cleaning → EDA → modeling
+├── model_columns.json                  # Ordered list of feature columns the model expects
+├── requirements.txt                    # Python dependencies
+├── png/
+│   ├── price_distribution.png          # Output 1 — raw price distribution
+│   ├── log_price_distribution.png      # Output 2 — log-transformed price distribution
+│   ├── rf_predicted_vs_actual.png      # Output 3 — Random Forest predicted vs actual
+│   └── app_screenshot.png              # Final Output — the live app
+├── .gitignore
+└── README.md
+```
+
+> - `mumbai-house-price-data.csv` — raw dataset
+> - `mumbai_house_data_cleaned.csv` — cleaned dataset
+> - `mumbai_house_price_model.pkl` — trained model, **required** for `app.py` to run
+
+---
+## 🧰 Tech Stack
+
+- **Data & modeling:** pandas, numpy, scikit-learn
+- **Visualization:** matplotlib, seaborn
+- **Web app:** Flask (pure Python, no JS)
+- **Model persistence:** joblib
+---
 ## 🗺️ The Full Pipeline, Step by Step
 
 This is the complete journey from raw CSV to a working web app, in the order it actually happens.
@@ -165,29 +194,6 @@ This is the end result of everything above: a 1000 sqft, 3BHK, unfurnished Indep
 
 ---
 
-## 📁 Project Structure
-
-```
-mumbai-house-price-app/
-├── app.py                              # Flask app — dropdowns + free numeric inputs
-├── mumbai_house_price_prediction.ipynb # Full notebook: cleaning → EDA → modeling
-├── model_columns.json                  # Ordered list of feature columns the model expects
-├── requirements.txt                    # Python dependencies
-├── png/
-│   ├── price_distribution.png          # Output 1 — raw price distribution
-│   ├── log_price_distribution.png      # Output 2 — log-transformed price distribution
-│   ├── rf_predicted_vs_actual.png      # Output 3 — Random Forest predicted vs actual
-│   └── app_screenshot.png              # Final Output — the live app
-├── .gitignore
-└── README.md
-```
-
-> - `mumbai-house-price-data.csv` — raw dataset
-> - `mumbai_house_data_cleaned.csv` — cleaned dataset
-> - `mumbai_house_price_model.pkl` — trained model, **required** for `app.py` to run
-
----
-
 ## 🚀 Getting Started
 
 ### 1. Clone
@@ -238,16 +244,3 @@ Any missing field, non-numeric text, or out-of-range value is rejected with a sp
 - **Local-only deployment:** currently runs via `python app.py` on localhost; containerizing with Docker and deploying to Render/Railway/Heroku would make it publicly accessible without the user running Python themselves.
 
 ---
-
-## 🧰 Tech Stack
-
-- **Data & modeling:** pandas, numpy, scikit-learn, XGBoost
-- **Visualization:** matplotlib, seaborn
-- **Web app:** Flask (pure Python, no JS)
-- **Model persistence:** joblib
-
----
-
-## 📄 License
-
-MIT License — free to use, modify, and build on.
